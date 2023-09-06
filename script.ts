@@ -62,9 +62,11 @@ const game = (): void => {
 };
 
 game();
-document.body.addEventListener('click', e => {
-  console.log(e.target);
-  if (e.target === targetedDiv || e.target.className === 'odd') {
+document.body.addEventListener('click', (e: Event) => {
+  if (
+    e.target === targetedDiv ||
+    (e.target as HTMLElement).className === 'odd'
+  ) {
     n++;
   } else {
     n = 1;
